@@ -88,7 +88,10 @@ function Weather() {
       setIsLoading(true); // Set loading to true
       setSearchTerm(isLoading ? loadingPlaceholder : "");
       setFilteredData([]); // Clear the suggestions list
-      if (cityNames != null && cityNames.includes(city) == false) {
+      if (cityNames == null) {
+        setCityNames["Islamabad"];
+      }
+      if (cityNames.includes(city) == false) {
         // Make an API call with the selected city
         setCityNames([...cityNames, city]);
         setWeatherData([...weatherData, await getCityDataApi(city)]);
