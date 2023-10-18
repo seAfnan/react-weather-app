@@ -110,25 +110,27 @@ function Weather() {
   }
 
   async function runCityLoop() {
-    // Create a copy of the current weatherData
-    setIsLoading(true);
-    setSearchTerm(isLoading ? loadingPlaceholder : "");
-    const newWeatherData = [...weatherData];
-    for (let index = 0; index < cityNames.length; index++) {
-      try {
-        const data = await getCityDataApi(cityNames[index]);
-        newWeatherData.push(data);
-      } catch (error) {
-        console.error(
-          "Error fetching weather data for city",
-          cityNames[index],
-          error
-        );
+    if (cityNames != null) {
+      // Create a copy of the current weatherData
+      setIsLoading(true);
+      setSearchTerm(isLoading ? loadingPlaceholder : "");
+      const newWeatherData = [...weatherData];
+      for (let index = 0; index < cityNames.length; index++) {
+        try {
+          const data = await getCityDataApi(cityNames[index]);
+          newWeatherData.push(data);
+        } catch (error) {
+          console.error(
+            "Error fetching weather data for city",
+            cityNames[index],
+            error
+          );
+        }
       }
+      // Update the state with the newWeatherData array
+      setIsLoading(false);
+      setWeatherData(newWeatherData);
     }
-    // Update the state with the newWeatherData array
-    setIsLoading(false);
-    setWeatherData(newWeatherData);
   }
   useEffect(() => {
     runCityLoop(); // Run the loop when the component mounts
