@@ -88,9 +88,6 @@ function Weather() {
       setIsLoading(true); // Set loading to true
       setSearchTerm(isLoading ? loadingPlaceholder : "");
       setFilteredData([]); // Clear the suggestions list
-      if (cityNames == null) {
-        setCityNames["Islamabad"];
-      }
       if (cityNames.includes(city) == false) {
         // Make an API call with the selected city
         setCityNames([...cityNames, city]);
@@ -136,7 +133,11 @@ function Weather() {
     }
   }
   useEffect(() => {
-    runCityLoop(); // Run the loop when the component mounts
+    if (cityNames == null) {
+      setCityNames([...cityNames, []]);
+    } else {
+      runCityLoop(); // Run the loop when the component mounts
+    }
   }, []); // The empty dependency array ensures this runs once
 
   const removeWeatherCity = (index) => {
