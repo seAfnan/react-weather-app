@@ -40,9 +40,10 @@ const apiKey = "355c01ca41f42cddb09bdef95828e250";
 function Weather() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredData, setFilteredData] = useState([]);
-  const [cityNames, setCityNames] = useState(
-    JSON.parse(localStorage.getItem("weather_cities"))
-  );
+  const [cityNames, setCityNames] = useState(() => {
+    const storedCityNames = JSON.parse(localStorage.getItem("weather_cities"));
+    return storedCityNames ? storedCityNames : ["Islamabad"];
+  });
   const [weatherData, setWeatherData] = useState([]);
   const { colorMode } = useColorMode();
   const suggestionsRef = useRef(null);
@@ -133,11 +134,7 @@ function Weather() {
     }
   }
   useEffect(() => {
-    if (cityNames == null) {
-      setCityNames([...cityNames, []]);
-    } else {
-      runCityLoop(); // Run the loop when the component mounts
-    }
+    runCityLoop(); // Run the loop when the component mounts
   }, []); // The empty dependency array ensures this runs once
 
   const removeWeatherCity = (index) => {
