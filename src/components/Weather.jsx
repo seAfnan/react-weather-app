@@ -21,6 +21,7 @@ import {
   HStack,
   VStack,
   Spinner,
+  Icon,
 } from "@chakra-ui/react";
 import {
   ArrowUpIcon,
@@ -31,8 +32,8 @@ import {
 import axios from "axios";
 import states from "../cities";
 import WeatherConditionIcon from "./WeatherConditionIcon";
-import SunriseImg from "../assets/sunrise.svg";
-import SunsetImg from "../assets/sunset.svg";
+import SunriseImg from "../assets/day.svg";
+import SunsetImg from "../assets/night.svg";
 
 const apiKey = "355c01ca41f42cddb09bdef95828e250";
 // localStorage.clear();
@@ -91,8 +92,11 @@ function Weather() {
       setFilteredData([]); // Clear the suggestions list
       if (cityNames.includes(city) == false) {
         // Make an API call with the selected city
-        setCityNames([...cityNames, city]);
-        setWeatherData([...weatherData, await getCityDataApi(city)]);
+        const getReturnData = await getCityDataApi(city);
+        if (getReturnData != null) {
+          setCityNames([...cityNames, city]);
+          setWeatherData([...weatherData, getReturnData]);
+        }
         inputRef.current.focus();
       }
       setIsLoading(false); // Set loading to false after API call
@@ -107,6 +111,7 @@ function Weather() {
       return response.data;
     } catch (error) {
       console.error("Error fetching weather data:", error);
+      return null;
     }
   }
 
@@ -119,7 +124,9 @@ function Weather() {
       for (let index = 0; index < cityNames.length; index++) {
         try {
           const data = await getCityDataApi(cityNames[index]);
-          newWeatherData.push(data);
+          if (data != null) {
+            newWeatherData.push(data);
+          }
         } catch (error) {
           console.error(
             "Error fetching weather data for city",
@@ -218,10 +225,12 @@ function Weather() {
           <Grid
             textAlign="center"
             alignItems="center"
+            bgColor={colorMode === "dark" ? "#232834" : "#e6e6e6"}
+            color={colorMode === "dark" ? "white" : "black"}
             // border="1px"
             // borderColor="white"
             pb="10px"
-            bg="#232834"
+            // bg="#232834"
             pl={["1px", "15px", "15px", "15px", "15px"]}
             pr="25px"
             mt="20px"
@@ -235,19 +244,24 @@ function Weather() {
             key={index}
           >
             <GridItem w="100%">
-              <HStack>
-                {/* <WeatherConditionIcon
-                    weatherCondition={key.weather[0].description}
-                  /> */}
-                <Heading
-                  pl={["1px", "15px", "15px", "15px", "15px"]}
-                  fontSize={["lg", "xl", "2xl", "3xl", "5xl"]}
-                >
-                  {key.name}
-                </Heading>
-              </HStack>
+              {/* <HStack> */}
+
+              <Center>
+                <WeatherConditionIcon
+                  weatherCondition={key.weather[0].description}
+                  city={key.name}
+                />
+              </Center>
+              <Heading
+                // pl={["1px", "15px", "15px", "15px", "15px"]}
+                fontSize={["lg", "xl", "2xl", "3xl", "4xl"]}
+              >
+                {key.name}
+              </Heading>
+              {/* </HStack> */}
             </GridItem>
             <GridItem w="100%">
+              <Text>{key.weather[0].description}</Text>
               <Heading fontSize={["xl", "2xl", "3xl", "4xl", "6xl"]}>
                 {(key.main.temp - 273.15).toFixed(1)}&#176;c
                 {/* <Text fontSize={["sm", "md", "lg", "xl", "2xl"]}>
@@ -275,7 +289,7 @@ function Weather() {
                 <HStack>
                   <Image
                     src={SunriseImg}
-                    maxW={["50%", "50%", "60%", "80%", "100%"]}
+                    width={["50%", "50%", "60%", "80%", "100%"]}
                   />
                   <Text
                     pl={["1px", "15px", "15px", "15px", "15px"]}
@@ -301,7 +315,7 @@ function Weather() {
               </VStack>
             </GridItem>
             <GridItem
-              textAlign={["right", "right", "right", "right", "center"]}
+              textAlign={["right", "right", "right", "right", "right"]}
               w="100%"
             >
               <Button

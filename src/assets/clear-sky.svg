@@ -1,0 +1,168 @@
+<!-- Animated using SVGANIMA - https://svganima.com -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="18" viewBox="0 0 50 30" id="svg2399" preserveAspectRatio="xMidYMid">
+    <defs id="defs3273">
+        <filter id="blur" width="200%" height="200%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3" id="feGaussianBlur1584"></feGaussianBlur>
+            <feOffset dx="0" dy="4" result="offsetblur" id="feOffset5670"></feOffset>
+            <feComponentTransfer id="feComponentTransfer2042">
+                <feFuncA type="linear" slope="0.05" id="feFuncA7622"></feFuncA>
+            </feComponentTransfer>
+            <feMerge id="feMerge389"> 
+                <feMergeNode id="feMergeNode6926"></feMergeNode>
+                <feMergeNode in="SourceGraphic" id="feMergeNode904"></feMergeNode> 
+            </feMerge>
+        </filter>
+        <style type="text/css" id="style5225">
+/*
+** CLOUDS
+*/
+@keyframes am-weather-cloud-2 {
+  0% {
+    -webkit-transform: translate(0px,0px);
+       -moz-transform: translate(0px,0px);
+        -ms-transform: translate(0px,0px);
+            transform: translate(0px,0px);
+  }
+
+  50% {
+    -webkit-transform: translate(2px,0px);
+       -moz-transform: translate(2px,0px);
+        -ms-transform: translate(2px,0px);
+            transform: translate(2px,0px);
+  }
+
+  100% {
+    -webkit-transform: translate(0px,0px);
+       -moz-transform: translate(0px,0px);
+        -ms-transform: translate(0px,0px);
+            transform: translate(0px,0px);
+  }
+}
+
+.am-weather-cloud-2 {
+  -webkit-animation-name: am-weather-cloud-2;
+     -moz-animation-name: am-weather-cloud-2;
+          animation-name: am-weather-cloud-2;
+  -webkit-animation-duration: 3s;
+     -moz-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-timing-function: linear;
+     -moz-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+     -moz-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+/*
+** SUN
+*/
+@keyframes am-weather-sun {
+  0% {
+    -webkit-transform: rotate(0deg);
+       -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+       -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.am-weather-sun {
+  -webkit-animation-name: am-weather-sun;
+     -moz-animation-name: am-weather-sun;
+      -ms-animation-name: am-weather-sun;
+          animation-name: am-weather-sun;
+  -webkit-animation-duration: 9s;
+     -moz-animation-duration: 9s;
+      -ms-animation-duration: 9s;
+          animation-duration: 9s;
+  -webkit-animation-timing-function: linear;
+     -moz-animation-timing-function: linear;
+      -ms-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+     -moz-animation-iteration-count: infinite;
+      -ms-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@keyframes am-weather-sun-shiny {
+  0% {
+    stroke-dasharray: 3px 10px;
+    stroke-dashoffset: 0px;
+  }
+
+  50% {
+    stroke-dasharray: 0.1px 10px;
+    stroke-dashoffset: -1px;
+  }
+
+  100% {
+    stroke-dasharray: 3px 10px;
+    stroke-dashoffset: 0px;
+  }
+}
+
+.am-weather-sun-shiny line {
+  -webkit-animation-name: am-weather-sun-shiny;
+     -moz-animation-name: am-weather-sun-shiny;
+      -ms-animation-name: am-weather-sun-shiny;
+          animation-name: am-weather-sun-shiny;
+  -webkit-animation-duration: 2s;
+     -moz-animation-duration: 2s;
+      -ms-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: linear;
+     -moz-animation-timing-function: linear;
+      -ms-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+     -moz-animation-iteration-count: infinite;
+      -ms-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+        </style>
+    </defs>
+    <g filter="url(#blur)" id="cloudy-day-3" transform="matrix(1 0 0 1 -3 -11)">
+        <g transform="translate(20,10)" id="g328">
+            <g transform="translate(0,16)" id="g6227">
+                <g class="am-weather-sun" id="g6123">
+                    <g id="g5895">
+                        <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3" id="line986"></line>
+                    </g>
+                    <g transform="rotate(45)" id="g5157">
+                        <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3" id="line2762"></line>
+                    </g>
+                    <g transform="rotate(90)" id="g86">
+                        <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3" id="line3591"></line>
+                    </g>
+                    <g transform="rotate(135)" id="g7836">
+                        <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3" id="line8203"></line>
+                    </g>
+                    <g transform="rotate(180)" id="g5782">
+                        <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3" id="line693"></line>
+                    </g>
+                    <g transform="rotate(225)" id="g9648">
+                        <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3" id="line873"></line>
+                    </g>
+                    <g transform="rotate(270)" id="g2126">
+                        <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3" id="line6084"></line>
+                    </g>
+                    <g transform="rotate(315)" id="g8048">
+                        <line fill="none" stroke="orange" stroke-linecap="round" stroke-width="2" transform="translate(0,9)" x1="0" x2="0" y1="0" y2="3" id="line8873"></line>
+                    </g>
+                </g>
+                <circle cx="0" cy="0" fill="orange" r="5" stroke="orange" stroke-width="2" id="circle4667"></circle>
+            </g>
+            <g class="am-weather-cloud-2" id="g7975">
+                <path d="M 47.7 35.4 C 47.7 30.799999999999997 44 27.2 39.5 27.2 C 38.5 27.2 37.6 27.4 36.7 27.7 C 36.400000000000006 24.3 33.6 21.5 30.1 21.5 C 26.400000000000002 21.5 23.400000000000002 24.5 23.400000000000002 28.2 C 23.400000000000002 29 23.6 29.8 23.8 30.5 C 23.5 30.4 23.1 30.4 22.8 30.4 C 19.1 30.4 16.1 33.4 16.1 37.1 C 16.1 40.7 19 43.7 22.6 43.800000000000004 L 39.8 43.800000000000004 C 44.2 43.3 47.7 39.8 47.7 35.4 Z" fill="#57A0EE" stroke="white" stroke-linejoin="round" stroke-width="1.2" transform="translate(-20,-11)" id="path8536"></path>
+            </g>
+        </g>
+    </g>
+</svg>

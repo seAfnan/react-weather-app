@@ -1,42 +1,30 @@
 import React from "react";
-import { Image, useColorMode } from "@chakra-ui/react";
-import FewCloudsImg from "../assets/few_clouds.svg";
+import { Image, useColorMode, Text, Box, Heading } from "@chakra-ui/react";
 
-import ClearSkyImgDark from "../assets/clear_sky_dark.svg";
-import ScatteredCloudsImgDark from "../assets/scattered_clouds_dark.svg";
-import BrokenCloudsImgDark from "../assets/broken_clouds_dark.svg";
-import ShowerRainImgDark from "../assets/shower_rain_dark.svg";
-import RainImgDark from "../assets/rain_dark.svg";
-import ThunderstormImgDark from "../assets/thunderstorm_dark.svg";
-import SnowImgDark from "../assets/snow_dark.svg";
-import MistImgDark from "../assets/mist_dark.svg";
-
-import ClearSkyImgLight from "../assets/clear_sky_light.svg";
-import ScatteredCloudsImgLight from "../assets/scattered_clouds_light.svg";
-import BrokenCloudsImgLight from "../assets/broken_clouds_light.svg";
-import ShowerRainImgLight from "../assets/shower_rain_light.svg";
-import RainImgLight from "../assets/rain_light.svg";
-import ThunderstormImgLight from "../assets/thunderstorm_light.svg";
-import SnowImgLight from "../assets/snow_light.svg";
-import MistImgLight from "../assets/mist_light.svg";
+import FewCloudsImg from "../assets/few-clouds.svg";
+import ClearSkyImg from "../assets/clear-sky.svg";
+import CloudsImg from "../assets/few-clouds.svg";
+import ShowerRainImg from "../assets/shower-rain.svg";
+import RainImg from "../assets/rain.svg";
+import ThunderstormImg from "../assets/thunderstrom.svg";
+import SnowImg from "../assets/snowy.svg";
+// import MistImg from "../assets/mist.svg";
 
 function WeatherConditionIcon(props) {
   const { colorMode } = useColorMode();
 
-  const lightWeatherConditionIcon = (param) => {
+  const weatherIcon = (param) => {
     switch (param) {
       case "clear sky":
-        return ClearSkyImgLight;
+        return ClearSkyImg;
       case "few clouds":
-      case "few clouds: 11-25%":
-        return FewCloudsImg;
+        return CloudsImg;
       case "scattered clouds":
-      case "scattered clouds: 25-50%":
-        return ScatteredCloudsImgLight;
+        return CloudsImg;
       case "broken clouds":
-      case "overcast clouds: 85-100%":
-      case "broken clouds: 51-84%":
-        return BrokenCloudsImgLight;
+      case "overcast clouds":
+      case "broken clouds":
+        return CloudsImg;
       case "shower rain":
       case "light intensity drizzle":
       case "drizzle":
@@ -47,7 +35,7 @@ function WeatherConditionIcon(props) {
       case "shower rain and drizzle":
       case "heavy shower rain and drizzle":
       case "shower drizzle":
-        return ShowerRainImgLight;
+        return ShowerRainImg;
       case "rain":
       case "light rain":
       case "moderate rain":
@@ -59,7 +47,7 @@ function WeatherConditionIcon(props) {
       case "shower rain":
       case "heavy intensity shower rain":
       case "ragged shower rain":
-        return RainImgLight;
+        return RainImg;
       case "thunderstorm":
       case "thunderstorm with light rain":
       case "thunderstorm with rain":
@@ -70,7 +58,7 @@ function WeatherConditionIcon(props) {
       case "thunderstorm with light drizzle":
       case "thunderstorm with drizzle":
       case "thunderstorm with heavy drizzle":
-        return ThunderstormImgLight;
+        return ThunderstormImg;
       case "snow":
       case "light snow":
       case "heavy snow":
@@ -82,7 +70,7 @@ function WeatherConditionIcon(props) {
       case "light shower snow":
       case "shower snow":
       case "heavy shower snow":
-        return SnowImgLight;
+        return SnowImg;
       case "mist":
       case "smoke":
       case "haze":
@@ -93,82 +81,7 @@ function WeatherConditionIcon(props) {
       case "volcanic ash":
       case "squalls":
       case "tornado":
-        return MistImgLight;
-      default:
-        return "";
-    }
-  };
-  const darkWeatherConditionIcon = (param) => {
-    switch (param) {
-      case "clear sky":
-        return ClearSkyImgDark;
-      case "few clouds":
-      case "few clouds: 11-25%":
-        return FewCloudsImg;
-      case "scattered clouds":
-      case "scattered clouds: 25-50%":
-        return ScatteredCloudsImgDark;
-      case "broken clouds":
-      case "overcast clouds: 85-100%":
-      case "broken clouds: 51-84%":
-        return BrokenCloudsImgDark;
-      case "shower rain":
-      case "light intensity drizzle":
-      case "drizzle":
-      case "heavy intensity drizzle":
-      case "light intensity drizzle rain":
-      case "drizzle rain":
-      case "heavy intensity drizzle rain":
-      case "shower rain and drizzle":
-      case "heavy shower rain and drizzle":
-      case "shower drizzle":
-        return ShowerRainImgDark;
-      case "rain":
-      case "light rain":
-      case "moderate rain":
-      case "heavy intensity rain":
-      case "very heavy rain":
-      case "extreme rain":
-      case "freezing rain":
-      case "light intensity shower rain":
-      case "shower rain":
-      case "heavy intensity shower rain":
-      case "ragged shower rain":
-        return RainImgDark;
-      case "thunderstorm":
-      case "thunderstorm with light rain":
-      case "thunderstorm with rain":
-      case "thunderstorm with heavy rain":
-      case "light thunderstorm":
-      case "heavy thunderstorm":
-      case "ragged thunderstorm":
-      case "thunderstorm with light drizzle":
-      case "thunderstorm with drizzle":
-      case "thunderstorm with heavy drizzle":
-        return ThunderstormImgDark;
-      case "snow":
-      case "light snow":
-      case "heavy snow":
-      case "sleet":
-      case "light shower sleet":
-      case "shower sleet":
-      case "light rain and snow":
-      case "rain and snow":
-      case "light shower snow":
-      case "shower snow":
-      case "heavy shower snow":
-        return SnowImgDark;
-      case "mist":
-      case "smoke":
-      case "haze":
-      case "sand/dust whirls":
-      case "fog":
-      case "sand":
-      case "dust":
-      case "volcanic ash":
-      case "squalls":
-      case "tornado":
-        return MistImgDark;
+        return MistImg;
       default:
         return "";
     }
@@ -176,15 +89,22 @@ function WeatherConditionIcon(props) {
 
   return (
     <>
+      {/* <Heading>{props.city}</Heading> */}
       <Image
+        textAlign="center"
+        alignItems="center"
+        // border="1px"
+        // borderColor="red"
         src={
-          colorMode == "dark"
-            ? darkWeatherConditionIcon(props.weatherCondition)
-            : lightWeatherConditionIcon(props.weatherCondition)
+          weatherIcon(props.weatherCondition)
+          // colorMode == "dark"
+          // ? darkWeatherConditionIcon(props.weatherCondition)
+          // : lightWeatherConditionIcon(props.weatherCondition)
         }
-        width={["100%", "100%", "100%", "100%", "100%"]}
-        // maxW={["20%", "20%", "30%", "40%", "50%"]}
+        width={["100%", "100%", "100%", "100%", "50%"]}
+        p="0px"
       />
+      {/* <Text>{props.weatherCondition}</Text> */}
     </>
   );
 }
