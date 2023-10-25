@@ -175,7 +175,7 @@ function Weather() {
   };
 
   return (
-    <Box w="100%" p={0} color="white">
+    <Box w="100%" color="white">
       <Container>
         <Input
           placeholder={isLoading ? loadingPlaceholder : "Search City"}
@@ -325,7 +325,7 @@ function Weather() {
                     </Heading>
                   </HStack>
                 </Show>
-                <HStack mt={["-23px", "30px", "40px", "35px", "18px"]}>
+                <HStack mt={["-20px", "30px", "40px", "35px", "28px", "18px"]}>
                   <Text fontSize={["xs", "xs", "md", "lg", "23px"]}>
                     humidity
                   </Text>
