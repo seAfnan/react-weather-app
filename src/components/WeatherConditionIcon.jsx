@@ -1,7 +1,6 @@
 import React from "react";
-import { Image, useColorMode, Text, Box, Heading } from "@chakra-ui/react";
+import { Image } from "@chakra-ui/react";
 
-import FewCloudsImg from "../assets/few-clouds.svg";
 import ClearSkyImg from "../assets/clear-sky.svg";
 import CloudsImg from "../assets/few-clouds.svg";
 import ShowerRainImg from "../assets/shower-rain.svg";
@@ -11,8 +10,6 @@ import SnowImg from "../assets/snowy.svg";
 // import MistImg from "../assets/mist.svg";
 
 function WeatherConditionIcon(props) {
-  const { colorMode } = useColorMode();
-
   const weatherIcon = (param) => {
     switch (param) {
       case "clear sky":
@@ -23,7 +20,6 @@ function WeatherConditionIcon(props) {
         return CloudsImg;
       case "broken clouds":
       case "overcast clouds":
-      case "broken clouds":
         return CloudsImg;
       case "shower rain":
       case "light intensity drizzle":
@@ -44,7 +40,6 @@ function WeatherConditionIcon(props) {
       case "extreme rain":
       case "freezing rain":
       case "light intensity shower rain":
-      case "shower rain":
       case "heavy intensity shower rain":
       case "ragged shower rain":
         return RainImg;
@@ -89,22 +84,15 @@ function WeatherConditionIcon(props) {
 
   return (
     <>
-      {/* <Heading>{props.city}</Heading> */}
       <Image
         textAlign="center"
         alignItems="center"
         // border="1px"
         // borderColor="red"
-        src={
-          weatherIcon(props.weatherCondition)
-          // colorMode == "dark"
-          // ? darkWeatherConditionIcon(props.weatherCondition)
-          // : lightWeatherConditionIcon(props.weatherCondition)
-        }
+        src={weatherIcon(props.weatherCondition)}
         width={["100%", "100%", "100%", "100%", "50%"]}
         p="0px"
       />
-      {/* <Text>{props.weatherCondition}</Text> */}
     </>
   );
 }

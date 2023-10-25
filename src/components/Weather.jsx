@@ -7,28 +7,18 @@ import {
   ListItem,
   Text,
   useColorMode,
-  Flex,
   Box,
   Center,
-  ButtonGroup,
   Button,
   Heading,
-  Square,
   Grid,
   GridItem,
   Show,
   Image,
   HStack,
   VStack,
-  Spinner,
-  Icon,
 } from "@chakra-ui/react";
-import {
-  ArrowUpIcon,
-  ArrowDownIcon,
-  ViewIcon,
-  CloseIcon,
-} from "@chakra-ui/icons";
+import { ArrowUpIcon, ArrowDownIcon, CloseIcon } from "@chakra-ui/icons";
 import axios from "axios";
 import states from "../cities";
 import WeatherConditionIcon from "./WeatherConditionIcon";
