@@ -26,8 +26,8 @@ import {
 import {
   ArrowUpIcon,
   ArrowDownIcon,
-  WarningIcon,
-  DeleteIcon,
+  ViewIcon,
+  CloseIcon,
 } from "@chakra-ui/icons";
 import axios from "axios";
 import states from "../cities";
@@ -175,7 +175,7 @@ function Weather() {
   };
 
   return (
-    <Box w="100%" p={4} color="white">
+    <Box w="100%" p={0} color="white">
       <Container>
         <Input
           placeholder={isLoading ? loadingPlaceholder : "Search City"}
@@ -250,27 +250,20 @@ function Weather() {
                   city={key.name}
                 />
               </Center>
-              <Heading
-                // pl={["1px", "15px", "15px", "15px", "15px"]}
-                fontSize={["lg", "xl", "2xl", "3xl", "4xl"]}
-              >
+              <Heading fontSize={["xs", "md", "lg", "2xl", "4xl"]}>
                 {key.name}
               </Heading>
             </GridItem>
             <GridItem w="100%">
-              <Text color="gray">{key.weather[0].main}</Text>
-              <Heading fontSize={["xl", "2xl", "3xl", "4xl", "6xl"]}>
+              <Text color="gray" fontSize={["xs", "xs", "sm", "md", "lg"]}>
+                {key.weather[0].main}
+              </Text>
+              <Heading fontSize={["lg", "2xl", "3xl", "4xl", "6xl"]}>
                 {(key.main.temp - 273.15).toFixed(0)}&#176;c
-                {/* <Text fontSize={["sm", "md", "lg", "xl", "2xl"]}>
-                    {(
-                      ((parseFloat(key.main.temp) - 273.15) * 9) / 5 +
-                      32
-                    ).toFixed(1)}
-                    &deg;F
-                  </Text> */}
               </Heading>
               <Heading
-                fontSize={["sm", "lg", "xl", "2xl", "2xl"]}
+                color="orange"
+                fontSize={["xs", "sm", "lg", "xl", "2xl"]}
                 marginTop={["5px", "10px", "15px", "15px", "20px"]}
               >
                 <ArrowUpIcon />
@@ -286,43 +279,91 @@ function Weather() {
                 <HStack>
                   <Image
                     src={SunriseImg}
-                    width={["50%", "50%", "60%", "80%", "100%"]}
+                    width={["30%", "30%", "60%", "80%", "100%"]}
                   />
                   <Text
                     pl={["1px", "15px", "15px", "15px", "15px"]}
-                    fontSize={["lg", "xl", "2xl", "3xl", "2xl"]}
+                    fontSize={["xs", "md", "lg", "xl", "2xl"]}
                   >
                     {calculateSunriseTime(key.sys.sunrise)}
-                    <small> AM</small>
+                    <small as="span"> AM</small>
                   </Text>
                 </HStack>
                 <HStack>
                   <Image
                     src={SunsetImg}
-                    maxW={["50%", "50%", "60%", "80%", "100%"]}
+                    width={["30%", "30%", "60%", "80%", "100%"]}
                   />
                   <Text
                     pl={["1px", "15px", "15px", "15px", "15px"]}
-                    fontSize={["lg", "xl", "2xl", "3xl", "2xl"]}
+                    fontSize={["xs", "md", "lg", "xl", "2xl"]}
                   >
                     {calculateSunsetTime(key.sys.sunset)}
-                    <small> PM</small>
+                    <small as="span"> PM</small>
                   </Text>
                 </HStack>
               </VStack>
             </GridItem>
             <GridItem
-              textAlign={["right", "right", "right", "right", "right"]}
               w="100%"
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              position="relative" // Add position relative to the GridItem
             >
+              <VStack width="80%">
+                <Show above="sm">
+                  <HStack>
+                    <Text fontSize={["xs", "xs", "md", "lg", "23px"]}>
+                      feels like
+                    </Text>
+                    <Heading
+                      color="orange"
+                      fontSize={["sm", "md", "md", "2xl", "4xl"]}
+                    >
+                      {(key.main.feels_like - 273.15).toFixed(0)}&#176;c
+                    </Heading>
+                  </HStack>
+                </Show>
+                <HStack mt={["-23px", "30px", "40px", "35px", "18px"]}>
+                  <Text fontSize={["xs", "xs", "md", "lg", "23px"]}>
+                    humidity
+                  </Text>
+                  <Show above="sm">
+                    <Heading
+                      color="orange"
+                      fontSize={["sm", "md", "md", "2xl", "4xl"]}
+                    >
+                      {key.main.humidity}
+                      <small>%</small>
+                    </Heading>
+                  </Show>
+                </HStack>
+                <Show below="sm">
+                  <Heading
+                    color="orange"
+                    fontSize={["sm", "md", "md", "2xl", "4xl"]}
+                    mt="-5px"
+                  >
+                    {key.main.humidity}
+                    <small>%</small>
+                  </Heading>
+                </Show>
+              </VStack>
+
               <Button
                 onClick={() => removeWeatherCity(index)}
-                size={["xs", "sm", "sm", "md", "lg"]}
+                size={["xs", "xs", "xs", "sm", "md"]}
                 bg="red"
+                borderRadius="0"
+                position="absolute" // Add position absolute
+                top={0} // Position it at the top
+                right={-2} // Position it at the right
               >
-                <DeleteIcon />
+                <CloseIcon />
               </Button>
             </GridItem>
+
             {/* <Show above="lg">
                 <GridItem w="100%" h="10" bg="blue.500">
                   this is one
