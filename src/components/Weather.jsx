@@ -244,8 +244,6 @@ function Weather() {
             key={index}
           >
             <GridItem w="100%">
-              {/* <HStack> */}
-
               <Center>
                 <WeatherConditionIcon
                   weatherCondition={key.weather[0].description}
@@ -258,12 +256,11 @@ function Weather() {
               >
                 {key.name}
               </Heading>
-              {/* </HStack> */}
             </GridItem>
             <GridItem w="100%">
-              <Text>{key.weather[0].description}</Text>
+              <Text color="gray">{key.weather[0].main}</Text>
               <Heading fontSize={["xl", "2xl", "3xl", "4xl", "6xl"]}>
-                {(key.main.temp - 273.15).toFixed(1)}&#176;c
+                {(key.main.temp - 273.15).toFixed(0)}&#176;c
                 {/* <Text fontSize={["sm", "md", "lg", "xl", "2xl"]}>
                     {(
                       ((parseFloat(key.main.temp) - 273.15) * 9) / 5 +
@@ -285,7 +282,7 @@ function Weather() {
               </Heading>
             </GridItem>
             <GridItem w="100%">
-              <VStack>
+              <VStack whiteSpace="nowrap">
                 <HStack>
                   <Image
                     src={SunriseImg}
@@ -296,7 +293,7 @@ function Weather() {
                     fontSize={["lg", "xl", "2xl", "3xl", "2xl"]}
                   >
                     {calculateSunriseTime(key.sys.sunrise)}
-                    <small>AM</small>
+                    <small> AM</small>
                   </Text>
                 </HStack>
                 <HStack>
@@ -309,7 +306,7 @@ function Weather() {
                     fontSize={["lg", "xl", "2xl", "3xl", "2xl"]}
                   >
                     {calculateSunsetTime(key.sys.sunset)}
-                    <small>PM</small>
+                    <small> PM</small>
                   </Text>
                 </HStack>
               </VStack>
