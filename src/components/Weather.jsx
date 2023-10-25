@@ -368,9 +368,9 @@ function Weather() {
                 borderRadius="0"
                 position="absolute" // Add position absolute
                 top={0} // Position it at the top
-                right={-2} // Position it at the right
+                right={["-4", "-2", "-2", "-2", "-2"]} // Position it at the right
               >
-                <CloseIcon />
+                <CloseIcon fontSize={["8px", "xs", "xs", "sm", "md"]} />
               </Button>
             </GridItem>
 
