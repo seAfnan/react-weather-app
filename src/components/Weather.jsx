@@ -325,7 +325,7 @@ function Weather() {
                     </Heading>
                   </HStack>
                 </Show>
-                <HStack mt={["-15px", "27px", "40px", "35px", "28px", "18px"]}>
+                <HStack mt={["-16px", "27px", "40px", "35px", "28px", "18px"]}>
                   <Text fontSize={["xs", "xs", "md", "lg", "23px"]}>
                     humidity
                   </Text>
