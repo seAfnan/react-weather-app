@@ -325,7 +325,7 @@ function Weather() {
                 <Show above="sm">
                   <HStack>
                     <Text fontSize={["xs", "xs", "md", "lg", "23px"]}>
-                      feels like
+                      Feels like
                     </Text>
                     <Heading
                       color="orange"
@@ -337,7 +337,7 @@ function Weather() {
                 </Show>
                 <HStack mt={["-16px", "27px", "40px", "35px", "28px", "18px"]}>
                   <Text fontSize={["xs", "xs", "md", "lg", "23px"]}>
-                    humidity
+                    Humidity
                   </Text>
                   <Show above="sm">
                     <Heading
