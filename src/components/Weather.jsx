@@ -233,7 +233,7 @@ function Weather() {
             // bg="#232834"
             pl={["1px", "15px", "15px", "15px", "15px"]}
             pr="25px"
-            mt="20px"
+            mt="10px"
             templateColumns={{
               base: "repeat(4, 1fr)", // Single column on small screens
               sm: "repeat(4, 1fr)", // Two columns on screens of width 30em (480px) and up
