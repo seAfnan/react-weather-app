@@ -268,10 +268,20 @@ function Weather() {
               >
                 <ArrowUpIcon />
                 {(key.main.temp_max - 273.15).toFixed(0)}&#176;c
-                <ArrowDownIcon
-                  marginLeft={["5px", "10px", "15px", "20px", "25px"]}
-                />
+                <Show above="sm">
+                  <ArrowDownIcon
+                    marginLeft={["5px", "10px", "15px", "20px", "25px"]}
+                  />
+                </Show>
+                <Show below="sm">
+                  <br />
+                </Show>
                 {(key.main.temp_min - 273.15).toFixed(0)}&#176;c
+                <Show below="sm">
+                  <ArrowDownIcon
+                    marginLeft={["5px", "10px", "15px", "20px", "25px"]}
+                  />
+                </Show>
               </Heading>
             </GridItem>
             <GridItem w="100%">
