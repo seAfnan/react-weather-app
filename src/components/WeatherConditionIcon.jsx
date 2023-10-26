@@ -7,7 +7,7 @@ import ShowerRainImg from "../assets/shower-rain.svg";
 import RainImg from "../assets/rain.svg";
 import ThunderstormImg from "../assets/thunderstrom.svg";
 import SnowImg from "../assets/snowy.svg";
-// import MistImg from "../assets/mist.svg";
+import MistImg from "../assets/mist2.svg";
 
 function WeatherConditionIcon(props) {
   const weatherIcon = (param) => {
