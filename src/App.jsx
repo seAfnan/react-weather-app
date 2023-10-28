@@ -2,6 +2,7 @@ import { Grid, GridItem, Heading } from "@chakra-ui/react";
 import { NavBar } from "./components/NavBar";
 import { Tabs, TabList, TabPanels, Tab, TabPanel, Box } from "@chakra-ui/react";
 import Weather from "./components/Weather";
+import Time from "./components/Time";
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
               <Weather />
             </TabPanel>
             <TabPanel>
-              <p>two!</p>
+              <Time />
             </TabPanel>
           </TabPanels>
         </Tabs>
